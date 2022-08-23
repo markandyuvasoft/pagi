@@ -1,0 +1,38 @@
+
+/*
+// GET PAGINATION START...........................................................................................................
+indexrouter.get("/page",async(req,res,next)=>{
+
+    try{
+
+const  {page,limit,sort,select,search=""}=req.query;
+
+
+const skip=(page-1)*limit;           // skip the previous page
+
+const users= await User.find({name:{$regex: search, $options: "i" }}).skip(skip).limit(limit)
+
+.sort({[sort]:1})                    // sort the name,age, id etc....
+
+ //  .select({name:1})              // show the name 
+
+res.send({page:page,limit:limit,users})
+
+const total = await User.countDocuments({
+        
+    name: { $regex: search, $options: "i" }        // search name according
+            });
+
+    }catch (error) {
+
+        console.log(error)
+
+        res.status(500).json({
+
+            error:error
+        })
+    }
+})
+
+// GET PAGINATION END...........................................................................................................
+*/
